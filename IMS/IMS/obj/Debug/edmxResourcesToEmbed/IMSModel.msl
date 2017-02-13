@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IMSModelStoreContainer" CdmEntityContainer="IMSContext">
+    <EntitySetMapping Name="AppForms">
+      <EntityTypeMapping TypeName="IMSModel.AppForm">
+        <MappingFragment StoreEntitySet="AppForm">
+          <ScalarProperty Name="AppFormId" ColumnName="AppFormId" />
+          <ScalarProperty Name="AppFormName" ColumnName="AppFormName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppFormRights">
+      <EntityTypeMapping TypeName="IMSModel.AppFormRight">
+        <MappingFragment StoreEntitySet="AppFormRights">
+          <ScalarProperty Name="AppFormRightsId" ColumnName="AppFormRightsId" />
+          <ScalarProperty Name="AppFormId" ColumnName="AppFormId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="Updater" ColumnName="Updater" />
+          <ScalarProperty Name="Deleter" ColumnName="Deleter" />
+          <ScalarProperty Name="Viewer" ColumnName="Viewer" />
+          <ScalarProperty Name="Approver" ColumnName="Approver" />
+          <ScalarProperty Name="Verifier" ColumnName="Verifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="IMSModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefaultPasswords">
+      <EntityTypeMapping TypeName="IMSModel.DefaultPassword">
+        <MappingFragment StoreEntitySet="DefaultPassword">
+          <ScalarProperty Name="DefaultPassword1" ColumnName="DefaultPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IMSModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IMSModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IGPs">
+      <EntityTypeMapping TypeName="IMSModel.IGP">
+        <MappingFragment StoreEntitySet="IGP">
+          <ScalarProperty Name="IGPId" ColumnName="IGPId" />
+          <ScalarProperty Name="IGPNumber" ColumnName="IGPNumber" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="SupplierBillId" ColumnName="SupplierBillId" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="VoucherNumber" ColumnName="VoucherNumber" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="VerfiedBy" ColumnName="VerfiedBy" />
+          <ScalarProperty Name="VerfiedOn" ColumnName="VerfiedOn" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IGPDetails">
+      <EntityTypeMapping TypeName="IMSModel.IGPDetail">
+        <MappingFragment StoreEntitySet="IGPDetail">
+          <ScalarProperty Name="IGPDetailId" ColumnName="IGPDetailId" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="IGPId" ColumnName="IGPId" />
+          <ScalarProperty Name="SrNumber" ColumnName="SrNumber" />
+          <ScalarProperty Name="SRVNumber" ColumnName="SRVNumber" />
+          <ScalarProperty Name="QuantityAccepted" ColumnName="QuantityAccepted" />
+          <ScalarProperty Name="SRVCreatedBy" ColumnName="SRVCreatedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSForms">
+      <EntityTypeMapping TypeName="IMSModel.IMSForm">
+        <MappingFragment StoreEntitySet="IMSForm">
+          <ScalarProperty Name="IMSFormId" ColumnName="IMSFormId" />
+          <ScalarProperty Name="IMSFormTitle" ColumnName="IMSFormTitle" />
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PercentageValues">
+      <EntityTypeMapping TypeName="IMSModel.PercentageValue">
+        <MappingFragment StoreEntitySet="PercentageValue">
+          <ScalarProperty Name="PercentageValueId" ColumnName="PercentageValueId" />
+          <ScalarProperty Name="PercentageValue1" ColumnName="PercentageValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IMSModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="IMSModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="IMSModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="PurchaseOrderDate" ColumnName="PurchaseOrderDate" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="DiscountTypeId" ColumnName="DiscountTypeId" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="SalesTaxTypeId" ColumnName="SalesTaxTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="IMSModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetail">
+          <ScalarProperty Name="PurchaseOrderDetailId" ColumnName="PurchaseOrderDetailId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="RequisitionId" ColumnName="RequisitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requisitions">
+      <EntityTypeMapping TypeName="IMSModel.Requisition">
+        <MappingFragment StoreEntitySet="Requisition">
+          <ScalarProperty Name="RequisitionId" ColumnName="RequisitionId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="RequisitionDate" ColumnName="RequisitionDate" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IMSModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="IMSModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierBills">
+      <EntityTypeMapping TypeName="IMSModel.SupplierBill">
+        <MappingFragment StoreEntitySet="SupplierBill">
+          <ScalarProperty Name="SupplierBillId" ColumnName="SupplierBillId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="DiscountTypeId" ColumnName="DiscountTypeId" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="SalesTaxTypeId" ColumnName="SalesTaxTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierBillDeatils">
+      <EntityTypeMapping TypeName="IMSModel.SupplierBillDeatil">
+        <MappingFragment StoreEntitySet="SupplierBillDeatil">
+          <ScalarProperty Name="SupplierBillDeatilId" ColumnName="SupplierBillDeatilId" />
+          <ScalarProperty Name="SupplierBillId" ColumnName="SupplierBillId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="IMSModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="UnitTitle" ColumnName="UnitTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IMSModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="IMSModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="IMSModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

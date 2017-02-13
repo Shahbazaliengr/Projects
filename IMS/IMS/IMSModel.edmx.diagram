@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="075a9f9979d44a9bb7f0f8acd009de72" Name="Diagram1">
+        <EntityTypeShape EntityType="IMSModel.AppForm" Width="1.5" PointX="8" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.AppFormRight" Width="1.5" PointX="10.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Company" Width="1.5" PointX="12.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.DefaultPassword" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Department" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Driver" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.IGP" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.IGPDetail" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.IMSForm" Width="1.5" PointX="15" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.PercentageValue" Width="1.5" PointX="3.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Product" Width="1.5" PointX="6" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.ProductCategory" Width="1.5" PointX="3.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.PurchaseOrder" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.PurchaseOrderDetail" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Requisition" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Role" Width="1.5" PointX="6" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Supplier" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.SupplierBill" Width="1.5" PointX="11.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.SupplierBillDeatil" Width="1.5" PointX="13.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Unit" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.User" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.UserRole" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.Vehicle" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="IMSModel.FK_AppFormRights_AppForm" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_AppFormRights_User" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IMSForm_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Requisition_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Driver_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_SupplierBill" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_User" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGP_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGPDetail_IGP" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGPDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_IGPDetail_ProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrder_PercentageValue" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrder_PercentageValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_SupplierBill_PercentageValue" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_SupplierBill_PercentageValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Product_ProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Product_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Requisition_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_SupplierBillDeatil_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrder_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrderDetail_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_SupplierBill_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PurchaseOrderDetail_Requisition" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_UserRole_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_Vehicle_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_SupplierBillDeatil_SupplierBill" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_UserRole_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

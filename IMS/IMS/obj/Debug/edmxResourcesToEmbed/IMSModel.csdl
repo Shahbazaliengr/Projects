@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppForm">
+    <Key>
+      <PropertyRef Name="AppFormId" />
+    </Key>
+    <Property Name="AppFormId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppFormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppFormRights" Relationship="Self.FK_AppFormRights_AppForm" FromRole="AppForm" ToRole="AppFormRights" />
+  </EntityType>
+  <EntityType Name="AppFormRight">
+    <Key>
+      <PropertyRef Name="AppFormRightsId" />
+    </Key>
+    <Property Name="AppFormRightsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppFormId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Creator" Type="Boolean" />
+    <Property Name="Updater" Type="Boolean" />
+    <Property Name="Deleter" Type="Boolean" />
+    <Property Name="Viewer" Type="Boolean" />
+    <Property Name="Approver" Type="Boolean" />
+    <Property Name="Verifier" Type="Boolean" />
+    <NavigationProperty Name="AppForm" Relationship="Self.FK_AppFormRights_AppForm" FromRole="AppFormRights" ToRole="AppForm" />
+    <NavigationProperty Name="User" Relationship="Self.FK_AppFormRights_User" FromRole="AppFormRights" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="IMSForms" Relationship="Self.FK_IMSForm_Company" FromRole="Company" ToRole="IMSForm" />
+  </EntityType>
+  <EntityType Name="DefaultPassword">
+    <Key>
+      <PropertyRef Name="DefaultPassword1" />
+    </Key>
+    <Property Name="DefaultPassword1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Requisitions" Relationship="Self.FK_Requisition_Department" FromRole="Department" ToRole="Requisition" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverId" />
+    </Key>
+    <Property Name="DriverId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierId" Type="Int32" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Driver_Supplier" FromRole="Driver" ToRole="Supplier" />
+    <NavigationProperty Name="IGPs" Relationship="Self.FK_IGP_Driver" FromRole="Driver" ToRole="IGP" />
+  </EntityType>
+  <EntityType Name="IGP">
+    <Key>
+      <PropertyRef Name="IGPId" />
+    </Key>
+    <Property Name="IGPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IGPNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CurrentDate" Type="DateTime" Precision="3" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="SupplierBillId" Type="Int32" />
+    <Property Name="DriverId" Type="Int32" />
+    <Property Name="VehicleId" Type="Int32" />
+    <Property Name="VoucherNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeOut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="VerfiedBy" Type="Int32" />
+    <Property Name="VerfiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_IGP_Driver" FromRole="IGP" ToRole="Driver" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_IGP_Supplier" FromRole="IGP" ToRole="Supplier" />
+    <NavigationProperty Name="SupplierBill" Relationship="Self.FK_IGP_SupplierBill" FromRole="IGP" ToRole="SupplierBill" />
+    <NavigationProperty Name="User" Relationship="Self.FK_IGP_User" FromRole="IGP" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_IGP_User1" FromRole="IGP" ToRole="User" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_IGP_Vehicle" FromRole="IGP" ToRole="Vehicle" />
+    <NavigationProperty Name="IGPDetails" Relationship="Self.FK_IGPDetail_IGP" FromRole="IGP" ToRole="IGPDetail" />
+  </EntityType>
+  <EntityType Name="IGPDetail">
+    <Key>
+      <PropertyRef Name="IGPDetailId" />
+    </Key>
+    <Property Name="IGPDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="IGPId" Type="Int32" />
+    <Property Name="SrNumber" Type="Int32" />
+    <Property Name="SRVNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuantityAccepted" Type="Int32" />
+    <Property Name="SRVCreatedBy" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductionDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="BatchNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IGP" Relationship="Self.FK_IGPDetail_IGP" FromRole="IGPDetail" ToRole="IGP" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_IGPDetail_Product" FromRole="IGPDetail" ToRole="Product" />
+    <NavigationProperty Name="ProductCategory" Relationship="Self.FK_IGPDetail_ProductCategory" FromRole="IGPDetail" ToRole="ProductCategory" />
+  </EntityType>
+  <EntityType Name="IMSForm">
+    <Key>
+      <PropertyRef Name="IMSFormId" />
+    </Key>
+    <Property Name="IMSFormId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IMSFormTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RevisionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyId" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_IMSForm_Company" FromRole="IMSForm" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="PercentageValue">
+    <Key>
+      <PropertyRef Name="PercentageValueId" />
+    </Key>
+    <Property Name="PercentageValueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PercentageValue1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_PurchaseOrder_PercentageValue" FromRole="PercentageValue" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="PurchaseOrders1" Relationship="Self.FK_PurchaseOrder_PercentageValue1" FromRole="PercentageValue" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="SupplierBills" Relationship="Self.FK_SupplierBill_PercentageValue" FromRole="PercentageValue" ToRole="SupplierBill" />
+    <NavigationProperty Name="SupplierBills1" Relationship="Self.FK_SupplierBill_PercentageValue1" FromRole="PercentageValue" ToRole="SupplierBill" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <NavigationProperty Name="IGPDetails" Relationship="Self.FK_IGPDetail_Product" FromRole="Product" ToRole="IGPDetail" />
+    <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK_Product_Unit" FromRole="Product" ToRole="Unit" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK_PurchaseOrderDetail_Product" FromRole="Product" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="Requisitions" Relationship="Self.FK_Requisition_Product" FromRole="Product" ToRole="Requisition" />
+    <NavigationProperty Name="SupplierBillDeatils" Relationship="Self.FK_SupplierBillDeatil_Product" FromRole="Product" ToRole="SupplierBillDeatil" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryId" />
+    </Key>
+    <Property Name="ProductCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IGPDetails" Relationship="Self.FK_IGPDetail_ProductCategory" FromRole="ProductCategory" ToRole="IGPDetail" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="PurchaseOrderId" />
+    </Key>
+    <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="PurchaseOrderDate" Type="DateTime" Precision="0" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="DiscountTypeId" Type="Int32" />
+    <Property Name="SalesTax" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="SalesTaxTypeId" Type="Int32" />
+    <NavigationProperty Name="PercentageValue" Relationship="Self.FK_PurchaseOrder_PercentageValue" FromRole="PurchaseOrder" ToRole="PercentageValue" />
+    <NavigationProperty Name="PercentageValue1" Relationship="Self.FK_PurchaseOrder_PercentageValue1" FromRole="PurchaseOrder" ToRole="PercentageValue" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_PurchaseOrder_Supplier" FromRole="PurchaseOrder" ToRole="Supplier" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK_PurchaseOrderDetail_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="SupplierBills" Relationship="Self.FK_SupplierBill_PurchaseOrder" FromRole="PurchaseOrder" ToRole="SupplierBill" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="PurchaseOrderDetailId" />
+    </Key>
+    <Property Name="PurchaseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseOrderId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="RequisitionId" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_PurchaseOrderDetail_Product" FromRole="PurchaseOrderDetail" ToRole="Product" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="Self.FK_PurchaseOrderDetail_PurchaseOrder" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="Requisition" Relationship="Self.FK_PurchaseOrderDetail_Requisition" FromRole="PurchaseOrderDetail" ToRole="Requisition" />
+  </EntityType>
+  <EntityType Name="Requisition">
+    <Key>
+      <PropertyRef Name="RequisitionId" />
+    </Key>
+    <Property Name="RequisitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RequisitionDate" Type="DateTime" Precision="0" />
+    <Property Name="Ordered" Type="Boolean" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Requisition_Department" FromRole="Requisition" ToRole="Department" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Requisition_Product" FromRole="Requisition" ToRole="Product" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK_PurchaseOrderDetail_Requisition" FromRole="Requisition" ToRole="PurchaseOrderDetail" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_Driver_Supplier" FromRole="Supplier" ToRole="Driver" />
+    <NavigationProperty Name="IGPs" Relationship="Self.FK_IGP_Supplier" FromRole="Supplier" ToRole="IGP" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_PurchaseOrder_Supplier" FromRole="Supplier" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicle_Supplier" FromRole="Supplier" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="SupplierBill">
+    <Key>
+      <PropertyRef Name="SupplierBillId" />
+    </Key>
+    <Property Name="SupplierBillId" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseOrderId" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="DiscountTypeId" Type="Int32" />
+    <Property Name="SalesTax" Type="Int32" />
+    <Property Name="SalesTaxTypeId" Type="Int32" />
+    <NavigationProperty Name="IGPs" Relationship="Self.FK_IGP_SupplierBill" FromRole="SupplierBill" ToRole="IGP" />
+    <NavigationProperty Name="PercentageValue" Relationship="Self.FK_SupplierBill_PercentageValue" FromRole="SupplierBill" ToRole="PercentageValue" />
+    <NavigationProperty Name="PercentageValue1" Relationship="Self.FK_SupplierBill_PercentageValue1" FromRole="SupplierBill" ToRole="PercentageValue" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="Self.FK_SupplierBill_PurchaseOrder" FromRole="SupplierBill" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="SupplierBillDeatils" Relationship="Self.FK_SupplierBillDeatil_SupplierBill" FromRole="SupplierBill" ToRole="SupplierBillDeatil" />
+  </EntityType>
+  <EntityType Name="SupplierBillDeatil">
+    <Key>
+      <PropertyRef Name="SupplierBillDeatilId" />
+    </Key>
+    <Property Name="SupplierBillDeatilId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierBillId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_SupplierBillDeatil_Product" FromRole="SupplierBillDeatil" ToRole="Product" />
+    <NavigationProperty Name="SupplierBill" Relationship="Self.FK_SupplierBillDeatil_SupplierBill" FromRole="SupplierBillDeatil" ToRole="SupplierBill" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Unit" FromRole="Unit" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="EmployeeName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppFormRights" Relationship="Self.FK_AppFormRights_User" FromRole="User" ToRole="AppFormRights" />
+    <NavigationProperty Name="IGPs" Relationship="Self.FK_IGP_User" FromRole="User" ToRole="IGP" />
+    <NavigationProperty Name="IGPs1" Relationship="Self.FK_IGP_User1" FromRole="User" ToRole="IGP" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_UserRole_Role" FromRole="UserRole" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserRole_User" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierId" Type="Int32" />
+    <NavigationProperty Name="IGPs" Relationship="Self.FK_IGP_Vehicle" FromRole="Vehicle" ToRole="IGP" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Vehicle_Supplier" FromRole="Vehicle" ToRole="Supplier" />
+  </EntityType>
+  <Association Name="FK_AppFormRights_AppForm">
+    <End Role="AppForm" Type="Self.AppForm" Multiplicity="0..1" />
+    <End Role="AppFormRights" Type="Self.AppFormRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppForm">
+        <PropertyRef Name="AppFormId" />
+      </Principal>
+      <Dependent Role="AppFormRights">
+        <PropertyRef Name="AppFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppFormRights_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="AppFormRights" Type="Self.AppFormRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AppFormRights">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IMSForm_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="IMSForm" Type="Self.IMSForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="IMSForm">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Requisition_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Requisition" Type="Self.Requisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Requisition">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_SupplierBill">
+    <End Role="SupplierBill" Type="Self.SupplierBill" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierBill">
+        <PropertyRef Name="SupplierBillId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="SupplierBillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="VerfiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_User1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="ApprovedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGP_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="IGP" Type="Self.IGP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="IGP">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGPDetail_IGP">
+    <End Role="IGP" Type="Self.IGP" Multiplicity="0..1" />
+    <End Role="IGPDetail" Type="Self.IGPDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IGP">
+        <PropertyRef Name="IGPId" />
+      </Principal>
+      <Dependent Role="IGPDetail">
+        <PropertyRef Name="IGPId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGPDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="IGPDetail" Type="Self.IGPDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="IGPDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGPDetail_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="IGPDetail" Type="Self.IGPDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryId" />
+      </Principal>
+      <Dependent Role="IGPDetail">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_PercentageValue">
+    <End Role="PercentageValue" Type="Self.PercentageValue" Multiplicity="0..1" />
+    <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PercentageValue">
+        <PropertyRef Name="PercentageValueId" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="DiscountTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_PercentageValue1">
+    <End Role="PercentageValue" Type="Self.PercentageValue" Multiplicity="0..1" />
+    <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PercentageValue">
+        <PropertyRef Name="PercentageValueId" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="SalesTaxTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierBill_PercentageValue">
+    <End Role="PercentageValue" Type="Self.PercentageValue" Multiplicity="0..1" />
+    <End Role="SupplierBill" Type="Self.SupplierBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PercentageValue">
+        <PropertyRef Name="PercentageValueId" />
+      </Principal>
+      <Dependent Role="SupplierBill">
+        <PropertyRef Name="DiscountTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierBill_PercentageValue1">
+    <End Role="PercentageValue" Type="Self.PercentageValue" Multiplicity="0..1" />
+    <End Role="SupplierBill" Type="Self.SupplierBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PercentageValue">
+        <PropertyRef Name="PercentageValueId" />
+      </Principal>
+      <Dependent Role="SupplierBill">
+        <PropertyRef Name="SalesTaxTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Requisition_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Requisition" Type="Self.Requisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Requisition">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierBillDeatil_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="SupplierBillDeatil" Type="Self.SupplierBillDeatil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="SupplierBillDeatil">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetail_PurchaseOrder">
+    <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierBill_PurchaseOrder">
+    <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="0..1" />
+    <End Role="SupplierBill" Type="Self.SupplierBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Principal>
+      <Dependent Role="SupplierBill">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetail_Requisition">
+    <End Role="Requisition" Type="Self.Requisition" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requisition">
+        <PropertyRef Name="RequisitionId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="RequisitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupplierBillDeatil_SupplierBill">
+    <End Role="SupplierBill" Type="Self.SupplierBill" Multiplicity="0..1" />
+    <End Role="SupplierBillDeatil" Type="Self.SupplierBillDeatil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierBill">
+        <PropertyRef Name="SupplierBillId" />
+      </Principal>
+      <Dependent Role="SupplierBillDeatil">
+        <PropertyRef Name="SupplierBillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IMSContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppForms" EntityType="Self.AppForm" />
+    <EntitySet Name="AppFormRights" EntityType="Self.AppFormRight" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="DefaultPasswords" EntityType="Self.DefaultPassword" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="IGPs" EntityType="Self.IGP" />
+    <EntitySet Name="IGPDetails" EntityType="Self.IGPDetail" />
+    <EntitySet Name="IMSForms" EntityType="Self.IMSForm" />
+    <EntitySet Name="PercentageValues" EntityType="Self.PercentageValue" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+    <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrder" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="Self.PurchaseOrderDetail" />
+    <EntitySet Name="Requisitions" EntityType="Self.Requisition" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="SupplierBills" EntityType="Self.SupplierBill" />
+    <EntitySet Name="SupplierBillDeatils" EntityType="Self.SupplierBillDeatil" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK_AppFormRights_AppForm" Association="Self.FK_AppFormRights_AppForm">
+      <End Role="AppForm" EntitySet="AppForms" />
+      <End Role="AppFormRights" EntitySet="AppFormRights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppFormRights_User" Association="Self.FK_AppFormRights_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AppFormRights" EntitySet="AppFormRights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IMSForm_Company" Association="Self.FK_IMSForm_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="IMSForm" EntitySet="IMSForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Requisition_Department" Association="Self.FK_Requisition_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Requisition" EntitySet="Requisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Supplier" Association="Self.FK_Driver_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_Driver" Association="Self.FK_IGP_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_Supplier" Association="Self.FK_IGP_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_SupplierBill" Association="Self.FK_IGP_SupplierBill">
+      <End Role="SupplierBill" EntitySet="SupplierBills" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_User" Association="Self.FK_IGP_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_User1" Association="Self.FK_IGP_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGP_Vehicle" Association="Self.FK_IGP_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="IGP" EntitySet="IGPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGPDetail_IGP" Association="Self.FK_IGPDetail_IGP">
+      <End Role="IGP" EntitySet="IGPs" />
+      <End Role="IGPDetail" EntitySet="IGPDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGPDetail_Product" Association="Self.FK_IGPDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="IGPDetail" EntitySet="IGPDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGPDetail_ProductCategory" Association="Self.FK_IGPDetail_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="IGPDetail" EntitySet="IGPDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_PercentageValue" Association="Self.FK_PurchaseOrder_PercentageValue">
+      <End Role="PercentageValue" EntitySet="PercentageValues" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_PercentageValue1" Association="Self.FK_PurchaseOrder_PercentageValue1">
+      <End Role="PercentageValue" EntitySet="PercentageValues" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierBill_PercentageValue" Association="Self.FK_SupplierBill_PercentageValue">
+      <End Role="PercentageValue" EntitySet="PercentageValues" />
+      <End Role="SupplierBill" EntitySet="SupplierBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierBill_PercentageValue1" Association="Self.FK_SupplierBill_PercentageValue1">
+      <End Role="PercentageValue" EntitySet="PercentageValues" />
+      <End Role="SupplierBill" EntitySet="SupplierBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductCategory" Association="Self.FK_Product_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Unit" Association="Self.FK_Product_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetail_Product" Association="Self.FK_PurchaseOrderDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Requisition_Product" Association="Self.FK_Requisition_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Requisition" EntitySet="Requisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierBillDeatil_Product" Association="Self.FK_SupplierBillDeatil_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="SupplierBillDeatil" EntitySet="SupplierBillDeatils" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_Supplier" Association="Self.FK_PurchaseOrder_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetail_PurchaseOrder" Association="Self.FK_PurchaseOrderDetail_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierBill_PurchaseOrder" Association="Self.FK_SupplierBill_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="SupplierBill" EntitySet="SupplierBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetail_Requisition" Association="Self.FK_PurchaseOrderDetail_Requisition">
+      <End Role="Requisition" EntitySet="Requisitions" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_Supplier" Association="Self.FK_Vehicle_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupplierBillDeatil_SupplierBill" Association="Self.FK_SupplierBillDeatil_SupplierBill">
+      <End Role="SupplierBill" EntitySet="SupplierBills" />
+      <End Role="SupplierBillDeatil" EntitySet="SupplierBillDeatils" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
