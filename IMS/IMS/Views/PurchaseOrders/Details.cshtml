@@ -1,0 +1,91 @@
+﻿@model IMS.PurchaseOrder
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PurchaseOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferenceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferenceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseOrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseOrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentageValue.PercentageValue1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentageValue.PercentageValue1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentageValue1.PercentageValue1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentageValue1.PercentageValue1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PurchaseOrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

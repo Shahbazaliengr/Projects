@@ -183,6 +183,8 @@
     <Compile Include="Controllers\IMSController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\PurchaseOrderDetailsController.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\RequisitionsController.cs" />
     <Compile Include="DefaultPassword.cs">
       <DependentUpon>IMSModel.tt</DependentUpon>
@@ -306,7 +308,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -351,6 +355,16 @@
     <Content Include="Views\Requisitions\Details.cshtml" />
     <Content Include="Views\Requisitions\Edit.cshtml" />
     <Content Include="Views\Requisitions\Index.cshtml" />
+    <Content Include="Views\PurchaseOrders\Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrders\Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Index.cshtml" />
+    <Content Include="Views\PurchaseOrderDetails\Create.cshtml" />
+    <Content Include="Views\PurchaseOrderDetails\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrderDetails\Details.cshtml" />
+    <Content Include="Views\PurchaseOrderDetails\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrderDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

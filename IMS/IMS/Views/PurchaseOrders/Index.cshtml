@@ -1,0 +1,87 @@
+﻿@model IEnumerable<IMS.PurchaseOrder>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReferenceNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseOrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentageValue.PercentageValue1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentageValue1.PercentageValue1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReferenceNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseOrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PercentageValue.PercentageValue1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PercentageValue1.PercentageValue1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PurchaseOrderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PurchaseOrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PurchaseOrderId })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("OrderDetails", "Index", "PurchaseOrderDetails")
+        </td>
+    </tr>
+}
+
+</table>
