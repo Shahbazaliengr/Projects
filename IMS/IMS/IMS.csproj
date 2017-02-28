@@ -183,7 +183,6 @@
     <Compile Include="Controllers\IMSController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\PurchaseOrderDetailsController.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\RequisitionsController.cs" />
     <Compile Include="DefaultPassword.cs">
@@ -360,11 +359,6 @@
     <Content Include="Views\PurchaseOrders\Details.cshtml" />
     <Content Include="Views\PurchaseOrders\Edit.cshtml" />
     <Content Include="Views\PurchaseOrders\Index.cshtml" />
-    <Content Include="Views\PurchaseOrderDetails\Create.cshtml" />
-    <Content Include="Views\PurchaseOrderDetails\Delete.cshtml" />
-    <Content Include="Views\PurchaseOrderDetails\Details.cshtml" />
-    <Content Include="Views\PurchaseOrderDetails\Edit.cshtml" />
-    <Content Include="Views\PurchaseOrderDetails\Index.cshtml" />
     <Content Include="Views\Drivers\Create.cshtml" />
     <Content Include="Views\Drivers\Delete.cshtml" />
     <Content Include="Views\Drivers\Details.cshtml" />
